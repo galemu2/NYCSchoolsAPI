@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/schoolsFragment">
+    <fragment
+        android:id="@+id/schoolsFragment"
+        android:name="com.ctrlaccess.a20220905_girumlemu_nycschools.ui.fragments.SchoolsFragment"
+        android:label="fragment_schools"
+        tools:layout="@layout/fragment_schools" />
+</navigation>
