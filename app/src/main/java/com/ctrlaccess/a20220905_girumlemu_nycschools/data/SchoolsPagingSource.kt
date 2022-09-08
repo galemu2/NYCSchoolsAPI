@@ -12,6 +12,7 @@ class SchoolsPagingSource(
 
     private val STARTING_PAGE = 1
     private val OFFSET_VALUE = 20
+
     override fun getRefreshKey(state: PagingState<Int, NYCSchools>): Int? {
 
         return state.anchorPosition?.let { anchorPosition ->

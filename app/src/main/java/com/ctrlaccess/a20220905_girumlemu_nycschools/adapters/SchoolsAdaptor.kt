@@ -1,6 +1,5 @@
 package com.ctrlaccess.a20220905_girumlemu_nycschools.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -12,13 +11,11 @@ import com.ctrlaccess.a20220905_girumlemu_nycschools.databinding.ItemSchoolBindi
 class SchoolsAdaptor(
     diffCallBack: DiffUtil.ItemCallback<NYCSchools> = object : DiffUtil.ItemCallback<NYCSchools>() {
         override fun areItemsTheSame(oldItem: NYCSchools, newItem: NYCSchools): Boolean {
-            Log.d("diffCallBack", "areItemsTheSame: ${oldItem.dbn == newItem.dbn}")
-            return oldItem.dbn == newItem.dbn
+             return oldItem.dbn == newItem.dbn
         }
 
         override fun areContentsTheSame(oldItem: NYCSchools, newItem: NYCSchools): Boolean {
-            Log.d("diffCallBack", "areContentsTheSame: ${ oldItem == newItem}")
-            return oldItem == newItem
+             return oldItem == newItem
         }
 
     }

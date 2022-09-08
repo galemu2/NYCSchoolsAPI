@@ -1,21 +1,18 @@
 package com.ctrlaccess.a20220905_girumlemu_nycschools.data
 
-import com.ctrlaccess.a20220905_girumlemu_nycschools.api.SchoolsServices
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import com.ctrlaccess.a20220905_girumlemu_nycschools.api.SchoolsApi
+import com.ctrlaccess.a20220905_girumlemu_nycschools.data.models.NYCSchools
 
-class SchoolsRepository(private val api: SchoolsServices) {
+class SchoolsRepository {
 
-
-/*    fun getSchools(offset: Int): NYCSchools {
-        return api.getAllSchools(offset = offset)
-    }*/
-
-
-    /*Pager(
-        config = PagingConfig(
-            pageSize = 20
-        ),
-        pagingSourceFactory = {
-            SchoolsPagingSource(api = api)
+    fun getSchools(): Pager<Int, NYCSchools> {
+        return Pager(
+            PagingConfig(pageSize =20 )
+        ){
+            SchoolsPagingSource(SchoolsApi.getInstance())
         }
-    ).flow.catchI*/
+    }
+
 }

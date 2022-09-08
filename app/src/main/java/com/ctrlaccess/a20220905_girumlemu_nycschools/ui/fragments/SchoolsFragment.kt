@@ -4,12 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.ctrlaccess.a20220905_girumlemu_nycschools.R
 import com.ctrlaccess.a20220905_girumlemu_nycschools.adapters.SchoolsAdaptor
-import com.ctrlaccess.a20220905_girumlemu_nycschools.api.SchoolsApi
-import com.ctrlaccess.a20220905_girumlemu_nycschools.data.SchoolsRepository
 import com.ctrlaccess.a20220905_girumlemu_nycschools.databinding.FragmentSchoolsBinding
 import com.ctrlaccess.a20220905_girumlemu_nycschools.ui.SchoolsViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -17,15 +14,7 @@ import kotlinx.coroutines.launch
 
 class SchoolsFragment : Fragment(R.layout.fragment_schools) {
 
-    private val viewModel: SchoolsViewModel by viewModels() /*lazy {
-        SchoolsViewModel(SchoolsRepository(SchoolsApi.getInstance()))
-*//*        SchoolsViewModelFactory(SchoolsRepository(SchoolsApiClient.getInstance()))
-            .create(
-                SchoolsViewModel::
-                class.java
-            )*//*
-    }*/
-
+    private val viewModel: SchoolsViewModel by viewModels()
 
     private var _binding: FragmentSchoolsBinding? = null
     private val binding: FragmentSchoolsBinding
@@ -45,8 +34,6 @@ class SchoolsFragment : Fragment(R.layout.fragment_schools) {
                 schoolsAdaptor.submitData(pagingData = pagindData)
             }
         }
-
-        //  schoolsAdaptor.submitData(viewLifecycleOwner.lifecycle, pagingData)
 
     }
 
