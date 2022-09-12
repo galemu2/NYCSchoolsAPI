@@ -24,7 +24,7 @@ class SchoolsPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, NYCSchools> {
 
         return try {
-            val offset = params.key ?: 0
+            val offset = params.key ?: 1
 
 
             val result = api.getAllSchools(limit = OFFSET_VALUE, offset = offset)
