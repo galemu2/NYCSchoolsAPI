@@ -2,6 +2,7 @@ package com.ctrlaccess.a20220905_girumlemu_nycschools.api
 
 import com.ctrlaccess.a20220905_girumlemu_nycschools.data.models.NYCSchools
 import com.ctrlaccess.a20220905_girumlemu_nycschools.data.models.SatResult
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -17,7 +18,7 @@ interface SchoolsServices {
     @GET("f9bf-2cp4.json")
     suspend fun getSatResult(
         @Query("dbn") dbn: String
-    ): List<SatResult>
+    ): Response<List<SatResult>>
 
 
 

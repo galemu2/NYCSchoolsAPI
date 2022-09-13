@@ -8,5 +8,18 @@
         android:id="@+id/schoolsFragment"
         android:name="com.ctrlaccess.a20220905_girumlemu_nycschools.ui.fragments.SchoolsFragment"
         android:label="fragment_schools"
-        tools:layout="@layout/fragment_schools" />
+        tools:layout="@layout/fragment_schools" >
+        <action
+            android:id="@+id/action_schoolsFragment_to_satFragment"
+            app:destination="@id/satFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/satFragment"
+        android:name="com.ctrlaccess.a20220905_girumlemu_nycschools.ui.fragments.SatFragment"
+        android:label="fragment_sat"
+        tools:layout="@layout/fragment_sat" >
+        <argument
+            android:name="dbn"
+            app:argType="string" />
+    </fragment>
 </navigation>

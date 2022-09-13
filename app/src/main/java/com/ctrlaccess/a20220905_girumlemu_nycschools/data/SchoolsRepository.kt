@@ -9,10 +9,12 @@ class SchoolsRepository {
 
     fun getSchools(): Pager<Int, NYCSchools> {
         return Pager(
-            PagingConfig(pageSize =20 )
-        ){
+            PagingConfig(pageSize = 20)
+        ) {
             SchoolsPagingSource(SchoolsApi.getInstance())
         }
     }
+
+    suspend fun getSatResult(dbn: String)  = SchoolsApi.getInstance().getSatResult(dbn = dbn)
 
 }

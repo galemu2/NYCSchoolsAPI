@@ -6,16 +6,17 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.ctrlaccess.a20220905_girumlemu_nycschools.R
 import com.ctrlaccess.a20220905_girumlemu_nycschools.adapters.SchoolsAdaptor
 import com.ctrlaccess.a20220905_girumlemu_nycschools.adapters.SchoolsLoadStateAdaptor
 import com.ctrlaccess.a20220905_girumlemu_nycschools.databinding.FragmentSchoolsBinding
-import com.ctrlaccess.a20220905_girumlemu_nycschools.ui.SchoolsViewModel
+import com.ctrlaccess.a20220905_girumlemu_nycschools.ui.viewModels.SchoolsViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class SchoolsFragment : Fragment(R.layout.fragment_schools) {
+class SchoolsFragment : Fragment(R.layout.fragment_schools), SchoolsAdaptor.OnItemClickListener {
 
     private val viewModel: SchoolsViewModel by viewModels()
 
@@ -27,7 +28,7 @@ class SchoolsFragment : Fragment(R.layout.fragment_schools) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentSchoolsBinding.bind(view)
 
-        val schoolsAdaptor = SchoolsAdaptor()
+        val schoolsAdaptor = SchoolsAdaptor(this)
 
         binding.recyclerViewHighSchools.setHasFixedSize(true)
         binding.recyclerViewHighSchools.adapter = schoolsAdaptor.withLoadStateHeaderAndFooter(
@@ -72,5 +73,10 @@ class SchoolsFragment : Fragment(R.layout.fragment_schools) {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun onItemClicked(dbn: String) {
+        val action = SchoolsFragmentDirections.actionSchoolsFragmentToSatFragment(dbn = dbn)
+        findNavController().navigate(action)
     }
 }
