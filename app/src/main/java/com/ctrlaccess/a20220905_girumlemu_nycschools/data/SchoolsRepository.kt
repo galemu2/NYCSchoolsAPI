@@ -15,6 +15,7 @@ class SchoolsRepository {
         }
     }
 
-    suspend fun getSatResult(dbn: String)  = SchoolsApi.getInstance().getSatResult(dbn = dbn)
+    suspend fun getSatResult(dbn: String) =
+        SchoolsApi.getInstance().getSatResult(dbn = dbn)
 
 }

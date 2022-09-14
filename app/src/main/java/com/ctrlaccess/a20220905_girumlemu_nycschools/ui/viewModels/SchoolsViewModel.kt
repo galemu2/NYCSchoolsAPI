@@ -18,22 +18,23 @@ class SchoolsViewModel(private val repository: SchoolsRepository = SchoolsReposi
     var satResult: MutableLiveData<Resource<List<SatResult>>> = MutableLiveData()
 
     fun getSatResults(dbn: String) {
+
         viewModelScope.launch {
             satResult.postValue(Resource.Loading())
             val response = repository.getSatResult(dbn = dbn)
-
             satResult.postValue(handleSatResponse(response))
         }
+
     }
 
-    private fun handleSatResponse(response: Response<List<SatResult>>): Resource<List<SatResult>> {
+    private fun handleSatResponse(
+        response: Response<List<SatResult>>
+    ): Resource<List<SatResult>> {
 
         if (response.isSuccessful) {
-
             response.body()?.let { satResults ->
                 return Resource.Success(data = satResults)
             }
-
         }
 
         return Resource.Error(message = response.message())

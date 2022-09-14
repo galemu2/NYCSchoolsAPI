@@ -50,11 +50,11 @@ class SatFragment : Fragment(R.layout.fragment_sat) {
                             layoutLoading.visibility = View.GONE
                             layoutSatResule.visibility = View.VISIBLE
 
-                            textViewSchool.text = satResult?.schoolName ?: "-"
+                            textViewSchool.text = satResult.schoolName ?: "-"
                             textViewTestTakers.text = satResult.numOfSatTestTakers ?: "-"
-                            textViewAvgReading.text = satResult?.satCriticalReadingAvgScore ?: "-"
-                            textViewAvgWriting.text = satResult?.satWritingAvgScore ?: "-"
-                            textViewAvgMath.text = satResult?.satMathAvgScore ?: "-"
+                            textViewAvgReading.text = satResult.satCriticalReadingAvgScore ?: "-"
+                            textViewAvgWriting.text = satResult.satWritingAvgScore ?: "-"
+                            textViewAvgMath.text = satResult.satMathAvgScore ?: "-"
                         }
                     }
 
